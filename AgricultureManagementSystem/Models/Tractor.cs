@@ -16,6 +16,9 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Rodzaj paliwa")]
 
         public FuelType FuelType { get; set; }
+
+        [Required(ErrorMessage = "Podaj pojemność zbiornika paliwa")]
+        [Display(Name = "Pojemność zbiornika paliwa")]
         public ushort FuelCapacity { get; set; }
         public ushort Power { get; set; }
 
