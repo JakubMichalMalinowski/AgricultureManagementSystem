@@ -10,14 +10,14 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class TractorController : Controller
     {
-        IList<Tractor> tractors = new List<Tractor>();
+        readonly IList<Tractor> tractors = new List<Tractor>();
 
         // GET: TractorController
         public ActionResult Index()
         {
-            tractors.Add(new Tractor("Fendt 712", 2000, 9000, 50, FuelType.Diesel, 300, 125));
-            tractors.Add(new Tractor("Fendt 311", 1987, 15000, 40, FuelType.Diesel, 100, 115));
-            tractors.Add(new Tractor("Fendt 308", 1980, 10000, 40, FuelType.Diesel, 100, 80));
+            tractors.Add(new Tractor("Fendt", "712", 2000, 9000, 50, FuelType.Diesel, 300, 125));
+            tractors.Add(new Tractor("Fendt", "311", 1987, 15000, 40, FuelType.Diesel, 100, 115));
+            tractors.Add(new Tractor("Fendt", "308", 1980, 10000, 40, FuelType.Diesel, 100, 80));
             return View(tractors);
         }
 
