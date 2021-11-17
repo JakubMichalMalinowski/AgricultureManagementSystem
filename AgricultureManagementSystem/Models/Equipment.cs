@@ -8,6 +8,9 @@ namespace AgricultureManagementSystem.Models
 {
     public abstract class Equipment
     {
+        [Key]
+        public int Id { get; set; }
+
         [Display(Name = "Marka")]
         public string Brand { get; set; }
 
