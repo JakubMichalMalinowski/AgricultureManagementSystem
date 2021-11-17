@@ -8,16 +8,15 @@ namespace AgricultureManagementSystem.Models
 {
     public abstract class Vehicle : Equipment
     {
-        [Required(ErrorMessage = "Podaj przebieg")]
-        [Display(Name = "Przebieg")]
+        [Required(ErrorMessage = "Podaj przebieg lub motogodziny")]
+        [Display(Name = "Przebieg (km / mth)")]
+        [Range(1, 10000000, ErrorMessage = "Przebieg musi mieścić się w przedziale od 1 do 10 000 000")]
         public ushort Course { get; set; }
 
-        protected Vehicle(string brand,
-            string model,
+        protected Vehicle(string model,
             ushort productionYear,
             ushort course)
-            : base(brand,
-                  model,
+            : base(model,
                   productionYear)
         {
             Course = course;

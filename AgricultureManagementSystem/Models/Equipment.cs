@@ -8,7 +8,6 @@ namespace AgricultureManagementSystem.Models
 {
     public abstract class Equipment
     {
-        [Required(ErrorMessage = "Podaj markę")]
         [Display(Name = "Marka")]
         public string Brand { get; set; }
 
@@ -18,13 +17,12 @@ namespace AgricultureManagementSystem.Models
 
         [Required(ErrorMessage = "Podaj rok produkcji")]
         [Display(Name = "Rok produkcji")]
+        [Range(1900, 2100, ErrorMessage = "Rok produkcji musi mieścić się w przedziale od 1900 do 2100")]
         public ushort ProductionYear { get; set; }
 
-        protected Equipment(string brand,
-            string model,
+        protected Equipment(string model,
             ushort productionYear)
         {
-            Brand = brand;
             Model = model;
             ProductionYear = productionYear;
         }

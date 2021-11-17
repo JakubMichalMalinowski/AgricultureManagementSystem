@@ -8,38 +8,33 @@ namespace AgricultureManagementSystem.Models
 {
     public class Tractor : Vehicle, IEngine
     {
-        [Required(ErrorMessage = "Podaj prędkość maksymalną")]
-        [Display(Name = "Prędkość maksymalna")]
-        public uint MaxSpeed { get; set; }
+        [Display(Name = "Prędkość maksymalna (km/h)")]
+        [Range(1, 100, ErrorMessage = "Prędkość musi mieścić się w przedziale od 1 do 100")]
+        public ushort MaxSpeed { get; set; }
 
         [Required(ErrorMessage = "Podaj rodzaj paliwa")]
         [Display(Name = "Rodzaj paliwa")]
         public FuelType FuelType { get; set; }
 
-        [Required(ErrorMessage = "Podaj pojemność zbiornika paliwa")]
-        [Display(Name = "Pojemność zbiornika paliwa")]
+        [Display(Name = "Pojemność zbiornika paliwa (l)")]
+        [Range(1, 10000, ErrorMessage = "Pojemność zbiornika paliwa musi mieścić się w przedziale od 1 do 10 000")]
         public ushort FuelCapacity { get; set; }
 
         [Required(ErrorMessage = "Podaj moc silnika")]
-        [Display(Name = "Moc silnika")]
+        [Display(Name = "Moc silnika (KM)")]
+        [Range(1, 2000, ErrorMessage = "Moc silnika musi mieścić się w przedziale od 1 do 2000")]
         public ushort Power { get; set; }
 
-        public Tractor(string brand,
-            string model,
+        public Tractor(string model,
             ushort productionYear,
             ushort course,
-            uint maxSpeed,
             FuelType fuelType,
-            ushort fuelCapacity,
             ushort power)
-            : base(brand,
-                  model,
+            : base(model,
                   productionYear,
                   course)
         {
-            MaxSpeed = maxSpeed;
             FuelType = fuelType;
-            FuelCapacity = fuelCapacity;
             Power = power;
         }
     }
