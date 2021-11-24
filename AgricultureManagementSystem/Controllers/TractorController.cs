@@ -34,7 +34,7 @@ namespace AgricultureManagementSystem.Controllers
         {
             db.Tractors.Add(tractor);
             db.SaveChanges();
-            return Index();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

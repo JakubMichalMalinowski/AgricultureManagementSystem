@@ -16,15 +16,5 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Szerokość robocza przystawki (m)")]
         [Range(0.1, 30, ErrorMessage = "Szerokość przystawki musi mieścić się w zakresie od 0.1 do 30")]
         public ushort Width { get; set; }
-
-        public Header(string model,
-            ushort productionYear,
-            HeaderType headerType,
-            ushort width)
-            : base(model, productionYear)
-        {
-            HeaderType = headerType;
-            Width = width;
-        }
     }
 }

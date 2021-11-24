@@ -14,14 +14,5 @@ namespace AgricultureManagementSystem.Models
         public ushort NumberOfStrawWalkers { get; set; }
 
         public IList<Header> Headers { get; set; }
-
-        public Combine(string model,
-            ushort productionYear,
-            ushort course,
-            ushort numberOfStrawWalkers)
-            : base(model, productionYear, course)
-        {
-            NumberOfStrawWalkers = numberOfStrawWalkers;
-        }
     }
 }

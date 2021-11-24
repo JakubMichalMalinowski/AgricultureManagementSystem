@@ -24,18 +24,5 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Moc silnika (KM)")]
         [Range(1, 2000, ErrorMessage = "Moc silnika musi mieścić się w przedziale od 1 do 2000")]
         public ushort Power { get; set; }
-
-        public Tractor(string model,
-            ushort productionYear,
-            ushort course,
-            FuelType fuelType,
-            ushort power)
-            : base(model,
-                  productionYear,
-                  course)
-        {
-            FuelType = fuelType;
-            Power = power;
-        }
     }
 }

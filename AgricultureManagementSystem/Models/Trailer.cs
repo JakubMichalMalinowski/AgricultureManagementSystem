@@ -19,8 +19,5 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Pojemność (m3)")]
         [Range(0.01, 100, ErrorMessage = "Pojemność musi mieścić się w przedziale od 0.01 do 100")]
         public ushort? CapacityM3 { get; set; }
-
-        public Trailer(string model, ushort productionYear)
-            : base(model, productionYear) { }
     }
 }

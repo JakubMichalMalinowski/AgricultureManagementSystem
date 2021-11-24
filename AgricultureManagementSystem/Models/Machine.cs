@@ -20,15 +20,5 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Wymagana moc pociągowa (KM)")]
         [Range(1, 2000, ErrorMessage = "Moc potrzebna do pracy z maszyną musi mieścić się w przedziale od 1 do 2000")]
         public ushort? RequiredPower { get; set; }
-
-        public Machine(string model,
-            ushort productionYear,
-            ushort workingWidth,
-            string typeOfWork)
-            : base(model, productionYear)
-        {
-            WorkingWidth = workingWidth;
-            TypeOfWork = typeOfWork;
-        }
     }
 }

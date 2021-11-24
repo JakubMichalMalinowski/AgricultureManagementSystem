@@ -25,11 +25,6 @@ namespace AgricultureManagementSystem.Models
         [Range(1900, 2100, ErrorMessage = "Rok produkcji musi mieścić się w przedziale od 1900 do 2100")]
         public ushort ProductionYear { get; set; }
 
-        protected Equipment(string model,
-            ushort productionYear)
-        {
-            Model = model;
-            ProductionYear = productionYear;
-        }
+        protected Equipment() { }
     }
 }
