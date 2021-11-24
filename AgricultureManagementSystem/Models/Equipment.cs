@@ -11,8 +11,10 @@ namespace AgricultureManagementSystem.Models
         [Key]
         public int Id { get; set; }
 
+#nullable enable
         [Display(Name = "Marka")]
-        public string Brand { get; set; }
+        public string? Brand { get; set; }
+#nullable disable
 
         [Required(ErrorMessage = "Podaj model")]
         [Display(Name = "Model")]

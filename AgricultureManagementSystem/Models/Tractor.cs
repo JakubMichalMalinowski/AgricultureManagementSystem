@@ -10,7 +10,7 @@ namespace AgricultureManagementSystem.Models
     {
         [Display(Name = "Prędkość maksymalna (km/h)")]
         [Range(1, 100, ErrorMessage = "Prędkość musi mieścić się w przedziale od 1 do 100")]
-        public ushort MaxSpeed { get; set; }
+        public ushort? MaxSpeed { get; set; }
 
         [Required(ErrorMessage = "Podaj rodzaj paliwa")]
         [Display(Name = "Rodzaj paliwa")]
@@ -18,7 +18,7 @@ namespace AgricultureManagementSystem.Models
 
         [Display(Name = "Pojemność zbiornika paliwa (l)")]
         [Range(1, 10000, ErrorMessage = "Pojemność zbiornika paliwa musi mieścić się w przedziale od 1 do 10 000")]
-        public ushort FuelCapacity { get; set; }
+        public ushort? FuelCapacity { get; set; }
 
         [Required(ErrorMessage = "Podaj moc silnika")]
         [Display(Name = "Moc silnika (KM)")]
