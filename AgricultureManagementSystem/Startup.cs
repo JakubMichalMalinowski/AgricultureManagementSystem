@@ -35,6 +35,9 @@ namespace AgricultureManagementSystem
             services.AddControllersWithViews();
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +47,6 @@ namespace AgricultureManagementSystem
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
-                app.UseDatabaseErrorPage();
             }
             else
             {
