@@ -4,14 +4,16 @@ using AgricultureManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AgricultureManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211130065252_AddCombinesToDB")]
+    partial class AddCombinesToDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,20 +34,11 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("Course")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FuelCapacity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FuelType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfStrawWalkers")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Power")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductionYear")

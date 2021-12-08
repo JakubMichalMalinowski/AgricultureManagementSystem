@@ -26,7 +26,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Tractor" asp-action="Index">Traktory</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Combine" asp-action="Index">Kombajny</a>
+                            <div class="dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true">Kombajny</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Combine" asp-action="Index">Kombajny</a>
+                                    <a class="dropdown-item" asp-controller="Header" asp-action="Index">Hedery</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Machine" asp-action="Index">Maszyny</a>

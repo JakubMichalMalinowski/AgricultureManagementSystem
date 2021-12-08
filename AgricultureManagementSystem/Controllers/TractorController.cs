@@ -14,15 +14,10 @@ namespace AgricultureManagementSystem.Controllers
         private readonly ApplicationDbContext db;
 
         public TractorController(ApplicationDbContext db)
-        {
-            this.db = db;
-        }
+            => this.db = db;
 
         public IActionResult Index()
-        {
-            IEnumerable<Tractor> tractors = db.Tractors;
-            return View(tractors);
-        }
+            => View(db.Tractors);
 
         public IActionResult Details(int id)
         {
@@ -34,13 +29,12 @@ namespace AgricultureManagementSystem.Controllers
                     return View(item);
                 }
             }
+
             return NotFound();
         }
 
         public IActionResult Create()
-        {
-            return View();
-        }
+            => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -52,7 +46,7 @@ namespace AgricultureManagementSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            
+
             return View(tractor);
         }
 

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<AgricultureManagementSystem.Models.Tractor>
+﻿@model IEnumerable<AgricultureManagementSystem.Models.Combine>
 
 @{
-    ViewData["Title"] = "Lista traktorów";
+    ViewData["Title"] = "Lista kombajnów";
 }
 
-<h1>Traktory</h1>
+<h1>Kombajny</h1>
 
 <p>
     <a class="btn btn-primary" asp-action="Create">Dodaj nowy</a>
@@ -14,28 +14,28 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.Brand)
                 </th>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.Model)
                 </th>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.ProductionYear)
                 </th>
-                <th class="align-middle">
-                    @Html.DisplayNameFor(model => model.Power)
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfStrawWalkers)
                 </th>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.Course)
                 </th>
-                <th class="align-middle">
-                    @Html.DisplayNameFor(model => model.MaxSpeed)
+                <th>
+                    @Html.DisplayNameFor(model => model.Power)
                 </th>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.FuelType)
                 </th>
-                <th class="align-middle">
+                <th>
                     @Html.DisplayNameFor(model => model.FuelCapacity)
                 </th>
                 <th></th>
@@ -55,13 +55,13 @@
                         @Html.DisplayFor(modelItem => item.ProductionYear)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Power)
+                        @Html.DisplayFor(modelItem => item.NumberOfStrawWalkers)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Course)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.MaxSpeed)
+                        @Html.DisplayFor(modelItem => item.Power)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FuelType)
