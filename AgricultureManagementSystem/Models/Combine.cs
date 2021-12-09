@@ -13,7 +13,7 @@ namespace AgricultureManagementSystem.Models
         [Range(1, 20, ErrorMessage = "Liczba wytrząsaczy musi mieścić się w przedziale od 1 do 20")]
         public ushort NumberOfStrawWalkers { get; set; }
 
-        public IList<Header> Headers { get; set; }
+        public IList<Header> Headers { get; } = new List<Header>();
 
         [Required(ErrorMessage = "Podaj rodzaj paliwa")]
         [Display(Name = "Rodzaj paliwa")]

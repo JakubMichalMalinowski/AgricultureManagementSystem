@@ -1,6 +1,7 @@
 ﻿using AgricultureManagementSystem.Data;
 using AgricultureManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,14 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (id != 0)
             {
-                var item = db.Combines.Find(id);
-                if (item != null)
+                Combine combine = db.Combines
+                    .Where(c => c.Id == id)
+                    .Include(c => c.Headers)
+                    .FirstOrDefault();
+
+                if (combine != null)
                 {
-                    return View(item);
+                    return View(combine);
                 }
             }
 
@@ -105,6 +110,34 @@ namespace AgricultureManagementSystem.Controllers
             }
 
             return NotFound();
+        }
+
+        public IActionResult CreateHeader()
+            => View();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateHeader(int combineId, Header header)
+        {
+            if (ModelState.IsValid)
+            {
+                Combine combine = db.Combines
+                    .Where(c => c.Id == combineId)
+                    .Include(c => c.Headers)
+                    .FirstOrDefault();
+
+                if (combine != null)
+                {
+                    combine.Headers.Add(header);
+                    db.SaveChanges();
+                    return RedirectToAction(nameof(Details),
+                        new { id = combineId });
+                }
+
+                return NotFound();
+            }
+
+            return View(header);
         }
     }
 }

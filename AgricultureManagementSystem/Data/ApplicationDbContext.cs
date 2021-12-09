@@ -21,5 +21,7 @@ namespace AgricultureManagementSystem.Data
         public DbSet<Machine> Machines { get; set; }
 
         public DbSet<Trailer> Trailers { get; set; }
+
+        public DbSet<AgricultureManagementSystem.Models.Header> Header { get; set; }
     }
 }
