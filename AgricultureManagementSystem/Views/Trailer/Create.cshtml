@@ -1,12 +1,12 @@
-﻿@model AgricultureManagementSystem.Models.Machine
+﻿@model AgricultureManagementSystem.Models.Trailer
 
 @{
-    ViewData["Title"] = "Dodaj maszynę";
+    ViewData["Title"] = "Dodaj przyczepę";
 }
 
 <h1>Dodaj nową</h1>
 
-<h4>Maszynę</h4>
+<h4>Przyczepę</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -27,21 +27,20 @@
                 <input asp-for="ProductionYear" class="form-control" />
                 <span asp-validation-for="ProductionYear" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                <label asp-for="WorkingWidth" class="control-label"></label>
-                <input asp-for="WorkingWidth" class="form-control" />
-                <span asp-validation-for="WorkingWidth" class="text-danger"></span>
+                <label asp-for="CurbWeight" class="control-label"></label>
+                <input asp-for="CurbWeight" class="form-control" />
+                <span asp-validation-for="CurbWeight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TypeOfWork" class="control-label"></label>
-                <input asp-for="TypeOfWork" class="form-control" />
-                <span asp-validation-for="TypeOfWork" class="text-danger"></span>
+                <label asp-for="CapacityKg" class="control-label"></label>
+                <input asp-for="CapacityKg" class="form-control" />
+                <span asp-validation-for="CapacityKg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RequiredPower" class="control-label"></label>
-                <input asp-for="RequiredPower" class="form-control" />
-                <span asp-validation-for="RequiredPower" class="text-danger"></span>
+                <label asp-for="CapacityM3" class="control-label"></label>
+                <input asp-for="CapacityM3" class="form-control" />
+                <span asp-validation-for="CapacityM3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Dodaj" class="btn btn-primary" />

@@ -19,5 +19,7 @@ namespace AgricultureManagementSystem.Data
         public DbSet<Combine> Combines { get; set; }
 
         public DbSet<Machine> Machines { get; set; }
+
+        public DbSet<Trailer> Trailers { get; set; }
     }
 }

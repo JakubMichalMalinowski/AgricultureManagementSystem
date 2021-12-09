@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AgricultureManagementSystem.Models.Trailer>
+
+@{
+    ViewData["Title"] = "Lista przyczep";
+}
+
+<h1>Przyczepy</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Dodaj nowy</a>
+</p>
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductionYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurbWeight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CapacityKg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CapacityM3)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurbWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CapacityKg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CapacityM3)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>W tej chwili nie ma żadnych elementów do wyświetlenia, kliknij przycisk dodaj nowy, aby dodać pierwszy element.</p>
+}

@@ -1,0 +1,54 @@
+﻿@model AgricultureManagementSystem.Models.Trailer
+
+@{
+    ViewData["Title"] = "Szczególy przyczepy";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Przyczepa</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductionYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductionYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CurbWeight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurbWeight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CapacityKg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CapacityKg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CapacityM3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CapacityM3)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Index">Wróć do listy</a>
+</div>
