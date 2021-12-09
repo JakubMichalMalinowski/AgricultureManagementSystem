@@ -1,0 +1,59 @@
+﻿@model AgricultureManagementSystem.Models.Machine
+
+@{
+    ViewData["Title"] = "Dodaj maszynę";
+}
+
+<h1>Dodaj nowy</h1>
+
+<h4>Maszyna</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductionYear" class="control-label"></label>
+                <input asp-for="ProductionYear" class="form-control" />
+                <span asp-validation-for="ProductionYear" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="WorkingWidth" class="control-label"></label>
+                <input asp-for="WorkingWidth" class="form-control" />
+                <span asp-validation-for="WorkingWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfWork" class="control-label"></label>
+                <input asp-for="TypeOfWork" class="form-control" />
+                <span asp-validation-for="TypeOfWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredPower" class="control-label"></label>
+                <input asp-for="RequiredPower" class="form-control" />
+                <span asp-validation-for="RequiredPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
