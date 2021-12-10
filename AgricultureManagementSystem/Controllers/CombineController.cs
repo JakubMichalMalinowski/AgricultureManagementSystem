@@ -121,6 +121,33 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (combineId != 0)
+                {
+                    Combine combine = db.Combines
+                        .Where(c => c.Id == combineId)
+                        .Include(c => c.Headers)
+                        .FirstOrDefault();
+
+                    if (combine != null)
+                    {
+                        combine.Headers.Add(header);
+                        db.SaveChanges();
+                        return RedirectToAction(nameof(Details),
+                            new { id = combineId });
+                    }
+                }
+
+                return NotFound();
+
+            }
+
+            return View(header);
+        }
+
+        public IActionResult EditHeader(int id, int combineId)
+        {
+            if (id != 0)
+            {
                 Combine combine = db.Combines
                     .Where(c => c.Id == combineId)
                     .Include(c => c.Headers)
@@ -128,13 +155,48 @@ namespace AgricultureManagementSystem.Controllers
 
                 if (combine != null)
                 {
-                    combine.Headers.Add(header);
-                    db.SaveChanges();
-                    return RedirectToAction(nameof(Details),
-                        new { id = combineId });
+                    try
+                    {
+                        Header header = combine.Headers
+                            .Single(h => h.Id == id);
+                        return View(header);
+                    }
+                    catch { }
+                }
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditHeader(Header header, int combineId)
+        {
+            if (ModelState.IsValid)
+            {
+                if (combineId != 0)
+                {
+                    Combine combine = db.Combines
+                        .Where(c => c.Id == combineId)
+                        .Include(c => c.Headers)
+                        .FirstOrDefault();
+
+                    if (combine != null)
+                    {
+                        int headerListIndex = combine.Headers.ToList()
+                            .FindIndex(h => h.Id == header.Id);
+
+                        combine.Headers[headerListIndex].Update(header);
+
+                        db.SaveChanges();
+
+                        return RedirectToAction(nameof(Details),
+                            new { id = combineId });
+                    }
                 }
 
                 return NotFound();
+
             }
 
             return View(header);
