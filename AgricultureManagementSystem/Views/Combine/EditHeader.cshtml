@@ -48,7 +48,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Wróć do listy</a>
+    <a asp-action="Details" asp-route-id="@Context.Request.Query["combineId"]" >Wróć do szczegółów kombajnu</a>
 </div>
 
 @section Scripts {

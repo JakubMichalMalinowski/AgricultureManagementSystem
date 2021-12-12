@@ -146,7 +146,7 @@ namespace AgricultureManagementSystem.Controllers
 
         public IActionResult EditHeader(int id, int combineId)
         {
-            if (id != 0)
+            if (id != 0 && combineId != 0)
             {
                 Combine combine = db.Combines
                     .Where(c => c.Id == combineId)
@@ -200,6 +200,61 @@ namespace AgricultureManagementSystem.Controllers
             }
 
             return View(header);
+        }
+
+        public IActionResult DeleteHeader(int id, int combineId)
+        {
+            if (id != 0 && combineId != 0)
+            {
+                Combine combine = db.Combines
+                    .Where(c => c.Id == combineId)
+                    .Include(c => c.Headers)
+                    .FirstOrDefault();
+
+                if (combine != null)
+                {
+                    try
+                    {
+                        Header header = combine.Headers
+                            .Single(h => h.Id == id);
+                        return View(header);
+                    }
+                    catch { }
+                }
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteHeaderPost(int id, int combineId)
+        {
+            if (id != 0 && combineId != 0)
+            {
+                Combine combine = db.Combines
+                    .Where(c => c.Id == combineId)
+                    .Include(c => c.Headers)
+                    .FirstOrDefault();
+
+                if (combine != null)
+                {
+                    try
+                    {
+                        Header header = combine.Headers
+                            .Single(h => h.Id == id);
+
+                        combine.Headers.Remove(header);
+                        db.SaveChanges();
+
+                        return RedirectToAction(nameof(Details),
+                            new { id = combineId });
+                    }
+                    catch { }
+                }
+            }
+
+            return NotFound();
         }
     }
 }

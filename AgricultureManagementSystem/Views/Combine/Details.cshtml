@@ -124,7 +124,7 @@
                     </dl>
                     <div>
                         <a asp-action="EditHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Edytuj</a> |
-                        <a asp-action="DeleteHeader" asp-route-id="@header.Id">Usuń</a>
+                        <a asp-action="DeleteHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Usuń</a>
                     </div>
                 }
             }
