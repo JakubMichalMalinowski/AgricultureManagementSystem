@@ -44,14 +44,14 @@
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <input type="submit" value="Zapisz" class="btn btn-primary" />
+                <input type="submit" value="Zapisz" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Wróć do listy</a>
+    <a class="btn btn-dark" asp-action="Details" asp-route-id="@Model.Id">Anuluj</a>
 </div>
 
 @section Scripts {

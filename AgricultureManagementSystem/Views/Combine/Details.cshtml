@@ -123,8 +123,8 @@
                         </dd>
                     </dl>
                     <div>
-                        <a asp-action="EditHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Edytuj</a> |
-                        <a asp-action="DeleteHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Usuń</a>
+                        <a class="btn btn-warning" asp-action="EditHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Edytuj</a>
+                        <a class="btn btn-danger" asp-action="DeleteHeader" asp-all-route-data="routeParams" asp-route-id="@header.Id">Usuń</a>
                     </div>
                 }
             }
@@ -136,6 +136,11 @@
     </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
-    <a asp-action="Index">Wróć do listy</a>
+    <div class="pb-3">
+        <a class="btn btn-outline-primary" asp-action="Index">Wróć do listy</a>
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a>
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Usuń</a>
+    </div>
 </div>

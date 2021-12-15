@@ -50,7 +50,7 @@
         <input type="hidden" asp-for="Id" />
         <input type="hidden" name="combineId"
                value="@Context.Request.Query["combineId"]" />
-        <input type="submit" value="Usuń" class="btn btn-danger" /> |
-        <a asp-action="Details" asp-route-id="@Context.Request.Query["combineId"]" >Wróć do szczegółów kombajnu</a>
+        <input type="submit" value="Usuń" class="btn btn-danger" />
+        <a class="btn btn-dark" asp-action="Details" asp-route-id="@Context.Request.Query["combineId"]" >Anuluj</a>
     </form>
 </div>

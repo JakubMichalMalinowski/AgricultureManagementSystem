@@ -1,7 +1,7 @@
 ﻿@model AgricultureManagementSystem.Models.Trailer
 
 @{
-    ViewData["Title"] = "Szczególy przyczepy";
+    ViewData["Title"] = "Szczegóły przyczepy";
 }
 
 <h1>Szczegóły</h1>
@@ -49,6 +49,11 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
-    <a asp-action="Index">Wróć do listy</a>
+    <div class="pb-3">
+        <a class="btn btn-outline-primary" asp-action="Index">Wróć do listy</a>
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a>
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Usuń</a>
+    </div>
 </div>

@@ -54,7 +54,7 @@
     
     <form asp-action="DeletePost">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Usuń" class="btn btn-danger" /> |
-        <a asp-action="Index">Wróć do listy</a>
+        <input type="submit" value="Usuń" class="btn btn-danger" />
+        <a class="btn btn-dark" asp-action="Details" asp-route-id="@Model.Id">Anuluj</a>
     </form>
 </div>
