@@ -26,6 +26,7 @@ namespace AgricultureManagementSystem.Controllers
                 Combine combine = db.Combines
                     .Where(c => c.Id == id)
                     .Include(c => c.Headers)
+                    .Include(c => c.Services)
                     .FirstOrDefault();
 
                 if (combine != null)
@@ -100,7 +101,12 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (id != 0)
             {
-                var item = db.Combines.Find(id);
+                var item = db.Combines
+                    .Where(c => c.Id == id)
+                    .Include(c => c.Headers)
+                    .Include(c => c.Services)
+                    .FirstOrDefault();
+
                 if (item != null)
                 {
                     db.Combines.Remove(item);

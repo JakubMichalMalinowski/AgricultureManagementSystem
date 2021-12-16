@@ -40,8 +40,7 @@
 
 <div>
     <a class="btn btn-dark"
-       asp-controller="@(((EquipmentType)int.Parse(Context.Request
-                            .Query["equipmentType"])).ToString())"
+       asp-controller="@Context.Request.Query["equipmentType"]"
        asp-action="Details"
        asp-route-id="@Context.Request.Query["equipmentId"]"
        asp-fragment="service-partial">Anuluj</a>

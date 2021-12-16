@@ -1,6 +1,7 @@
 ﻿using AgricultureManagementSystem.Data;
 using AgricultureManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,13 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (id != 0)
             {
-                var item = db.Trailers.Find(id);
+                var item = db.Trailers
+                    .Where(t => t.Id == id)
+                    .Include(t => t.Services)
+                    .FirstOrDefault();
+
                 if (item != null)
                 {
-
                     return View(item);
                 }
             }
@@ -95,7 +99,11 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (id != 0)
             {
-                var item = db.Trailers.Find(id);
+                var item = db.Trailers
+                    .Where(t => t.Id == id)
+                    .Include(t => t.Services)
+                    .FirstOrDefault();
+
                 if (item != null)
                 {
                     db.Trailers.Remove(item);

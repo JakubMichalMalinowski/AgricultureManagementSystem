@@ -101,7 +101,11 @@ namespace AgricultureManagementSystem.Controllers
         {
             if (id != 0)
             {
-                var item = db.Tractors.Find(id);
+                var item = db.Tractors
+                    .Where(t => t.Id == id)
+                    .Include(t => t.Services)
+                    .FirstOrDefault();
+
                 if (item != null)
                 {
                     db.Tractors.Remove(item);
