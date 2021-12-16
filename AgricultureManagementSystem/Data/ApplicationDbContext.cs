@@ -23,5 +23,7 @@ namespace AgricultureManagementSystem.Data
         public DbSet<Trailer> Trailers { get; set; }
 
         public DbSet<AgricultureManagementSystem.Models.Header> Header { get; set; }
+
+        public DbSet<AgricultureManagementSystem.Models.Service> Service { get; set; }
     }
 }
