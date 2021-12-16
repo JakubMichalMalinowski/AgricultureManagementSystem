@@ -87,19 +87,21 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="align-middle">
+                        <th class="align-middle border-bottom-0">
                             @Html.DisplayNameFor(model => model.Services[0].DateTime)
                         </th>
-                        <th class="align-middle">
+                        <th class="align-middle border-bottom-0">
                             @Html.DisplayNameFor(model => model.Services[0].ServiceType)
                         </th>
-                        <th class="align-middle">
+                        <th class="align-middle border-bottom-0">
                             @Html.DisplayNameFor(model => model.Services[0].ServiceDescription)
                         </th>
+                        <th class="border-bottom-0"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var service in Model.Services)
+                    @foreach (var service in Model.Services
+                        .OrderBy(s => s.DateTime))
                     {
                         <tr>
                             <td>
@@ -109,6 +111,10 @@
                                 @Html.DisplayFor(modelItem => service.ServiceType)
                             </td>
                             <td class="multiline-text">@Html.DisplayFor(modelItem => service.ServiceDescription)</td>
+                            <td class="btn-group-vertical">
+                                <a class="btn btn-outline-warning btn-sm">Edytuj</a>
+                                <a class="btn btn-outline-danger btn-sm">Usuń</a>
+                            </td>
                         </tr>
                     }
                 </tbody>
