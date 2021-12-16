@@ -67,7 +67,7 @@
         <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@Model.Id">Usuń</a>
     </div>
 </div>
-<div class="mt-4">
+<div id="service-partial" class="mt-4">
     @{
         var routeParams = new Dictionary<string, string>
         {
@@ -103,7 +103,8 @@
                     @foreach (var service in Model.Services
                         .OrderBy(s => s.DateTime))
                     {
-                        <tr>
+                        <tr id="service-partial-@service.Id"
+                            >
                             <td>
                                 @Html.DisplayFor(modelItem => service.DateTime)
                             </td>
@@ -112,8 +113,16 @@
                             </td>
                             <td class="multiline-text">@Html.DisplayFor(modelItem => service.ServiceDescription)</td>
                             <td class="btn-group-vertical">
-                                <a class="btn btn-outline-warning btn-sm">Edytuj</a>
-                                <a class="btn btn-outline-danger btn-sm">Usuń</a>
+                                <a class="btn btn-outline-warning btn-sm"
+                                   asp-controller="Service"
+                                   asp-action="Edit"
+                                   asp-all-route-data="routeParams"
+                                   asp-route-id="@service.Id">Edytuj</a>
+                                <a class="btn btn-outline-danger btn-sm"
+                                   asp-controller="Service"
+                                   asp-action="Delete"
+                                   asp-all-route-data="routeParams"
+                                   asp-route-id="@service.Id">Usuń</a>
                             </td>
                         </tr>
                     }
@@ -126,3 +135,4 @@
         }
     </div>
 </div>
+<script>highlightServiceRow(window.location.hash.substring(17))</script>

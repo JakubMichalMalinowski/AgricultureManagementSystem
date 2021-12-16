@@ -73,3 +73,12 @@ body {
 .multiline-text {
     white-space: pre-wrap;
 }
+
+.highlight {
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { background-color: yellow; }
+    100% { background-color: none; }
+}

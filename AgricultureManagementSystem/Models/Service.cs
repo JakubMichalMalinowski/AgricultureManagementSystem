@@ -13,7 +13,6 @@ namespace AgricultureManagementSystem.Models
 
         [Required(ErrorMessage = "Podaj prawidłową datę")]
         [Display(Name = "Data i godzina")]
-        [DataType(DataType.MultilineText)]
         public DateTime DateTime { get; set; }
 
         [Required(ErrorMessage = "Podaj rodzaj czynności")]
@@ -22,7 +21,15 @@ namespace AgricultureManagementSystem.Models
 
 #nullable enable
         [Display(Name = "Opis")]
+        [DataType(DataType.MultilineText)]
         public string? ServiceDescription { get; set; }
 #nullable disable
+
+        public void Update(Service service)
+        {
+            DateTime = service.DateTime;
+            ServiceType = service.ServiceType;
+            ServiceDescription = service.ServiceDescription;
+        }
     }
 }

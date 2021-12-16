@@ -1,17 +1,22 @@
 ﻿@model AgricultureManagementSystem.Models.Service
 
 @{
-    ViewData["Title"] = "Dodaj serwis";
+    ViewData["Title"] = "Edytuj serwis";
 }
 
-<h1>Dodaj nową</h1>
+<h1>Edytuj</h1>
 
 <h4>Czynność serwisową</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" name="equipmentId"
+                   value="@Context.Request.Query["equipmentId"]" />
+            <input type="hidden" name="equipmentType"
+                   value="@Context.Request.Query["equipmentType"]" />
             <div class="form-group">
                 <label asp-for="DateTime" class="control-label"></label>
                 <input asp-for="DateTime" class="form-control" />
@@ -27,10 +32,6 @@
                 <textarea rows="5" asp-for="ServiceDescription" class="form-control"></textarea>
                 <span asp-validation-for="ServiceDescription" class="text-danger"></span>
             </div>
-            <input type="hidden" name="equipmentId"
-                   value="@Context.Request.Query["equipmentId"]" />
-            <input type="hidden" name="equipmentType"
-                   value="@Context.Request.Query["equipmentType"]" />
             <div class="form-group">
                 <input type="submit" value="Zapisz" class="btn btn-success" />
             </div>
