@@ -4,14 +4,16 @@ using AgricultureManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AgricultureManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211219161832_FloatToDecimal")]
+    partial class FloatToDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,11 +58,11 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Course")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("FuelCapacity")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("FuelCapacity")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
@@ -69,11 +71,11 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("NumberOfStrawWalkers")
-                        .HasColumnType("tinyint");
-
-                    b.Property<int>("Power")
+                    b.Property<int>("NumberOfStrawWalkers")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Power")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
@@ -90,8 +92,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Area")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Area")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FieldCrop")
                         .HasColumnType("nvarchar(max)");
@@ -135,8 +137,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
 
-                    b.Property<float>("Width")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Width")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -162,15 +164,15 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RequiredPower")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("RequiredPower")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("TypeOfWork")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("WorkingWidth")
-                        .HasColumnType("real");
+                    b.Property<decimal>("WorkingWidth")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -234,24 +236,24 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Course")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("FuelCapacity")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("FuelCapacity")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
 
-                    b.Property<byte?>("MaxSpeed")
-                        .HasColumnType("tinyint");
+                    b.Property<decimal?>("MaxSpeed")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Power")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Power")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
@@ -271,14 +273,14 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CapacityKg")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("CapacityKg")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float?>("CapacityM3")
-                        .HasColumnType("real");
+                    b.Property<decimal?>("CapacityM3")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("CurbWeight")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("CurbWeight")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Model")
                         .IsRequired()

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgricultureManagementSystem.Models
 {
@@ -10,7 +8,7 @@ namespace AgricultureManagementSystem.Models
     {
         [Display(Name = "Prędkość maksymalna (km/h)")]
         [Range(1, 100, ErrorMessage = "Prędkość musi mieścić się w przedziale od 1 do 100")]
-        public ushort? MaxSpeed { get; set; }
+        public byte? MaxSpeed { get; set; }
 
         [Required(ErrorMessage = "Podaj rodzaj paliwa")]
         [Display(Name = "Rodzaj paliwa")]

@@ -1,17 +1,12 @@
 using AgricultureManagementSystem.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace AgricultureManagementSystem
 {
@@ -36,13 +31,22 @@ namespace AgricultureManagementSystem
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddMvc(options =>
+            {
+                options.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((a, b) => $"Wartoœæ {a} jest niepoprawna dla pola {b}");
+                options.ModelBindingMessageProvider.SetValueMustBeANumberAccessor((a) => $"Pole {a} musi byæ wype³nione liczb¹");
+            });
 
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var cultureInfo = new CultureInfo("pl-PL");
+            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

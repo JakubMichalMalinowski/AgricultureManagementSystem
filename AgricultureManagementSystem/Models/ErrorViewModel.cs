@@ -1,5 +1,3 @@
-using System;
-
 namespace AgricultureManagementSystem.Models
 {
     public class ErrorViewModel

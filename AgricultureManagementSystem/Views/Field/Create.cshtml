@@ -1,0 +1,53 @@
+﻿@model AgricultureManagementSystem.Models.Field
+
+@{
+    ViewData["Title"] = "Dodaj pole";
+}
+
+<h1>Dodaj nowe</h1>
+
+<h4>Pole</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Area" class="control-label"></label>
+                <input asp-for="Area" class="form-control" type="number" step="any" />
+                <span asp-validation-for="Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroundClass" class="control-label"></label>
+                <input asp-for="GroundClass" class="form-control" />
+                <span asp-validation-for="GroundClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FieldCrop" class="control-label"></label>
+                <input asp-for="FieldCrop" class="form-control" />
+                <span asp-validation-for="FieldCrop" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-dark" asp-action="Index">Anuluj</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

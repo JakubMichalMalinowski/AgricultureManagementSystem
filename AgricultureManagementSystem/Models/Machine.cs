@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AgricultureManagementSystem.Models
 {
@@ -11,7 +8,7 @@ namespace AgricultureManagementSystem.Models
         [Required(ErrorMessage = "Podaj szerokość roboczą")]
         [Display(Name = "Szerokość robocza (m)")]
         [Range(0.1, 30, ErrorMessage = "Szerokość robocza musi mieścić się w przzedziale od 0.1 do 30")]
-        public ushort WorkingWidth { get; set; }
+        public float WorkingWidth { get; set; }
 
         [Required(ErrorMessage = "Podaj sposób pracy maszyną")]
         [Display(Name = "Wykonywana praca maszyny")]

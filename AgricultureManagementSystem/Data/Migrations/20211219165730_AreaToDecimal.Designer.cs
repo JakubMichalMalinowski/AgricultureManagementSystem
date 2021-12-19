@@ -4,14 +4,16 @@ using AgricultureManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AgricultureManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211219165730_AreaToDecimal")]
+    partial class AreaToDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,8 +58,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Course")
+                        .HasColumnType("int");
 
                     b.Property<int?>("FuelCapacity")
                         .HasColumnType("int");
@@ -69,8 +71,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("NumberOfStrawWalkers")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("NumberOfStrawWalkers")
+                        .HasColumnType("int");
 
                     b.Property<int>("Power")
                         .HasColumnType("int");
@@ -90,8 +92,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Area")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Area")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FieldCrop")
                         .HasColumnType("nvarchar(max)");
@@ -135,8 +137,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
 
-                    b.Property<float>("Width")
-                        .HasColumnType("real");
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -169,8 +171,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("WorkingWidth")
-                        .HasColumnType("real");
+                    b.Property<int>("WorkingWidth")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -234,8 +236,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Course")
+                        .HasColumnType("int");
 
                     b.Property<int?>("FuelCapacity")
                         .HasColumnType("int");
@@ -243,8 +245,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
 
-                    b.Property<byte?>("MaxSpeed")
-                        .HasColumnType("tinyint");
+                    b.Property<int?>("MaxSpeed")
+                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -274,8 +276,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int?>("CapacityKg")
                         .HasColumnType("int");
 
-                    b.Property<float?>("CapacityM3")
-                        .HasColumnType("real");
+                    b.Property<int?>("CapacityM3")
+                        .HasColumnType("int");
 
                     b.Property<int?>("CurbWeight")
                         .HasColumnType("int");

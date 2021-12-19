@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AgricultureManagementSystem.Models
 {
@@ -18,6 +15,6 @@ namespace AgricultureManagementSystem.Models
 
         [Display(Name = "Pojemność (m3)")]
         [Range(0.01, 100, ErrorMessage = "Pojemność musi mieścić się w przedziale od 0.01 do 100")]
-        public ushort? CapacityM3 { get; set; }
+        public float? CapacityM3 { get; set; }
     }
 }

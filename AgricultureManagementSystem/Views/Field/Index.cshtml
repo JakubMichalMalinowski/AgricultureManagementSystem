@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AgricultureManagementSystem.Models.Field>
+
+@{
+    ViewData["Title"] = "Pola uprawne";
+}
+
+<h1>Pola uprawne</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Dodaj</a>
+</p>
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="align-middle">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th class="align-middle">
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th class="align-middle">
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th class="align-middle">
+                    @Html.DisplayNameFor(model => model.GroundClass)
+                </th>
+                <th class="align-middle">
+                    @Html.DisplayNameFor(model => model.FieldCrop)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroundClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FieldCrop)
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>W tej chwili nie ma żadnych elementów do wyświetlenia, kliknij przycisk dodaj nowy, aby dodać pierwszy element.</p>
+}

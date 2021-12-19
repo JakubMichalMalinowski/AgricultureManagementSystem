@@ -4,14 +4,16 @@ using AgricultureManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AgricultureManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211219153724_SetValuesToFloat")]
+    partial class SetValuesToFloat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,11 +58,11 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<float>("Course")
+                        .HasColumnType("real");
 
-                    b.Property<int?>("FuelCapacity")
-                        .HasColumnType("int");
+                    b.Property<float?>("FuelCapacity")
+                        .HasColumnType("real");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
@@ -69,11 +71,11 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("NumberOfStrawWalkers")
-                        .HasColumnType("tinyint");
-
-                    b.Property<int>("Power")
+                    b.Property<int>("NumberOfStrawWalkers")
                         .HasColumnType("int");
+
+                    b.Property<float>("Power")
+                        .HasColumnType("real");
 
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
@@ -90,8 +92,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Area")
-                        .HasColumnType("float");
+                    b.Property<float>("Area")
+                        .HasColumnType("real");
 
                     b.Property<string>("FieldCrop")
                         .HasColumnType("nvarchar(max)");
@@ -162,8 +164,8 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RequiredPower")
-                        .HasColumnType("int");
+                    b.Property<float?>("RequiredPower")
+                        .HasColumnType("real");
 
                     b.Property<string>("TypeOfWork")
                         .IsRequired()
@@ -234,24 +236,24 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Course")
-                        .HasColumnType("bigint");
+                    b.Property<float>("Course")
+                        .HasColumnType("real");
 
-                    b.Property<int?>("FuelCapacity")
-                        .HasColumnType("int");
+                    b.Property<float?>("FuelCapacity")
+                        .HasColumnType("real");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
 
-                    b.Property<byte?>("MaxSpeed")
-                        .HasColumnType("tinyint");
+                    b.Property<float?>("MaxSpeed")
+                        .HasColumnType("real");
 
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Power")
-                        .HasColumnType("int");
+                    b.Property<float>("Power")
+                        .HasColumnType("real");
 
                     b.Property<int>("ProductionYear")
                         .HasColumnType("int");
@@ -271,14 +273,14 @@ namespace AgricultureManagementSystem.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CapacityKg")
-                        .HasColumnType("int");
+                    b.Property<float?>("CapacityKg")
+                        .HasColumnType("real");
 
                     b.Property<float?>("CapacityM3")
                         .HasColumnType("real");
 
-                    b.Property<int?>("CurbWeight")
-                        .HasColumnType("int");
+                    b.Property<float?>("CurbWeight")
+                        .HasColumnType("real");
 
                     b.Property<string>("Model")
                         .IsRequired()

@@ -1,9 +1,6 @@
 ﻿using AgricultureManagementSystem.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AgricultureManagementSystem.Data
 {
@@ -22,8 +19,10 @@ namespace AgricultureManagementSystem.Data
 
         public DbSet<Trailer> Trailers { get; set; }
 
-        public DbSet<AgricultureManagementSystem.Models.Header> Header { get; set; }
+        public DbSet<Header> Header { get; set; }
 
-        public DbSet<AgricultureManagementSystem.Models.Service> Service { get; set; }
+        public DbSet<Service> Service { get; set; }
+
+        public DbSet<Field> Fields { get; set; }
     }
 }
