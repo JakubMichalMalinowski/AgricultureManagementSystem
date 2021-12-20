@@ -52,5 +52,68 @@ namespace AgricultureManagementSystem.Controllers
 
             return View(field);
         }
+
+        public IActionResult Edit(int id)
+        {
+            if (id != 0)
+            {
+                var item = db.Fields.Find(id);
+                if (item != null)
+                {
+                    return View(item);
+                }
+            }    
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Field field)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Fields.Update(field);
+                db.SaveChanges();
+                return RedirectToAction(nameof(Details),
+                    new { id = field.Id });
+            }
+
+            return View(field);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            if (id != 0)
+            {
+                var item = db.Fields.Find(id);
+                if (item != null)
+                    return View(item);
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int id)
+        {
+            if (id != 0)
+            {
+                var item = db.Fields
+                    .Where(f => f.Id == id)
+                    .Include(f => f.Activities)
+                    .FirstOrDefault();
+
+                if (item != null)
+                {
+                    db.Fields.Remove(item);
+                    db.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+            return NotFound();
+        }
     }
 }

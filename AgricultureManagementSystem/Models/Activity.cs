@@ -20,5 +20,12 @@ namespace AgricultureManagementSystem.Models
         [Display(Name = "Opis")]
         public string? Description { get; set; }
 #nullable disable
+
+        public void Update(Activity activity)
+        {
+            DateTime = activity.DateTime;
+            Name = activity.Name;
+            Description = activity.Description;
+        }
     }
 }

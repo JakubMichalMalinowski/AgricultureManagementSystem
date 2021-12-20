@@ -24,5 +24,7 @@ namespace AgricultureManagementSystem.Data
         public DbSet<Service> Service { get; set; }
 
         public DbSet<Field> Fields { get; set; }
+
+        public DbSet<AgricultureManagementSystem.Models.Activity> Activity { get; set; }
     }
 }

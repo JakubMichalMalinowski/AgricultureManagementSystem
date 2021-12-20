@@ -72,7 +72,8 @@ namespace AgricultureManagementSystem.Controllers
             {
                 db.Trailers.Update(trailer);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),
+                    new { id = trailer.Id });
             }
 
             return View(trailer);

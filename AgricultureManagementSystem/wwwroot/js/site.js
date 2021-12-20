@@ -9,3 +9,10 @@ function highlightServiceRow(rowId) {
         $('#service-partial-' + rowId).removeClass('highlight');
     }, 5000);
 }
+
+function highlightActivityRow(rowId) {
+    $('#activity-partial-' + rowId).addClass('highlight');
+    setTimeout(function () {
+        $('#activity-partial-' + rowId).removeClass('highlight');
+    }, 5000);
+}

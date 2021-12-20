@@ -74,7 +74,8 @@ namespace AgricultureManagementSystem.Controllers
             {
                 db.Combines.Update(combine);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),
+                    new { id = combine.Id });
             }
 
             return View(combine);

@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     @foreach (var service in Model.Services
-                       .OrderBy(s => s.DateTime))
+                       .OrderByDescending(s => s.DateTime))
                     {
                         <tr id="service-partial-@service.Id">
                             <td>

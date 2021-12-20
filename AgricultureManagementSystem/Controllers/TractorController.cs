@@ -73,7 +73,8 @@ namespace AgricultureManagementSystem.Controllers
             {
                 db.Tractors.Update(tractor);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),
+                    new { id = tractor.Id });
             }
 
             return View(tractor);
