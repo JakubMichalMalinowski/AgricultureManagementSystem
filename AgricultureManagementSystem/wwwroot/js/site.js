@@ -16,3 +16,14 @@ function highlightActivityRow(rowId) {
         $('#activity-partial-' + rowId).removeClass('highlight');
     }, 5000);
 }
+
+function highlightNoteRow(rowId) {
+    $('#note-' + rowId).removeClass('bg-light');
+    $('#note-' + rowId).addClass('bg-secondary');
+    $('#note-' + rowId).addClass('text-white');
+    setTimeout(function () {
+        $('#note-' + rowId).removeClass('bg-secondary');
+        $('#note-' + rowId).removeClass('text-white');
+        $('#note-' + rowId).addClass('bg-light');
+    }, 2000);
+}

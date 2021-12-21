@@ -25,6 +25,8 @@ namespace AgricultureManagementSystem.Data
 
         public DbSet<Field> Fields { get; set; }
 
-        public DbSet<AgricultureManagementSystem.Models.Activity> Activity { get; set; }
+        public DbSet<Activity> Activity { get; set; }
+
+        public DbSet<Note> Notes { get; set; }
     }
 }
