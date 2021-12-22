@@ -18,10 +18,6 @@ namespace AgricultureManagementSystem.Controllers
         public IActionResult Index()
             => View(db.Notes.Where(n => n.Index == 0).FirstOrDefault());
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
