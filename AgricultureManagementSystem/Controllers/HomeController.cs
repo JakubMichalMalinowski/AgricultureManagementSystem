@@ -17,12 +17,5 @@ namespace AgricultureManagementSystem.Controllers
 
         public IActionResult Index()
             => View(db.Notes.Where(n => n.Index == 0).FirstOrDefault());
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
