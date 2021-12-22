@@ -1,0 +1,75 @@
+﻿@model AgricultureManagementSystem.Models.BalanceWithTransfersEnumerable
+@{
+    ViewData["Title"] = "Finanse";
+}
+
+<h1 class="mb-3">Finanse</h1>
+
+<div>
+    <a class="btn btn-success"
+       asp-action="Transfer">Dodaj przelew</a>
+</div>
+
+<div class="float-right">
+    <h2 class="font-weight-bold 
+        @(Model.Balance > 0 ? "text-success" : "text-danger")">Saldo: @Model.Balance.ToString("C")</h2>
+</div>
+
+<div class="mt-5 scrollableTransfers">
+    @if (Model.Transfers.Count() > 0)
+    {
+        <table class="table">
+            <thead class="sticky-top bg-white">
+                <tr>
+                    <th class="align-middle border-0">
+                        @Html.DisplayNameFor(model => model.Transfers.First().DateTime)
+                    </th>
+                    <th class="align-middle border-0">
+                        @Html.DisplayNameFor(model => model.Transfers.First().Recipient) /
+                        @Html.DisplayNameFor(model => model.Transfers.First().Sender)
+                    </th>
+                    <th class="align-middle border-0">
+                        @Html.DisplayNameFor(model => model.Transfers.First().Title)
+                    </th>
+                    <th class="align-middle border-0 text-right">
+                        @Html.DisplayNameFor(model => model.Transfers.First().Amount)
+                    </th>
+                    <th class="border-0"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Transfer transfer in Model.Transfers)
+                {
+                    <tr class="@(transfer.TransferIn ? "bgTransferIn" : "bgTransferOut")">
+                        <td>
+                            @Html.DisplayFor(modelItem => transfer.DateTime)
+                        </td>
+                        <td>
+                            @(transfer.TransferIn ? transfer.Sender : transfer.Recipient)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => transfer.Title)
+                        </td>
+                        <td class="text-right">
+                            @(transfer.TransferIn ? "+ " : "- ")
+                            @transfer.Amount.ToString("C")
+                        </td>
+                        <td class="text-right">
+                            <a class="btn btn-sm btn-warning"
+                               asp-action="EditTransfer"
+                               asp-route-id="@transfer.Id">Edytuj</a>
+                            <a class="btn btn-sm btn-danger"
+                               asp-action="DeleteTransfer"
+                               asp-route-id="@transfer.Id">Usuń</a>
+                        </td>
+                    </tr>
+                    <tr style="height: 4px"></tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Brak historii przelewów przychodzących i wychodzących.</p>
+    }
+</div>

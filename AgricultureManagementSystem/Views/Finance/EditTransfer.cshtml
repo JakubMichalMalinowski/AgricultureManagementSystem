@@ -1,0 +1,62 @@
+﻿@model AgricultureManagementSystem.Models.Transfer
+
+@{
+    ViewData["Title"] = "Edytuj przelew";
+}
+
+<h1>Edytuj przelew</h1>
+
+<h4>@(Model.TransferIn ? "Przychodzący" : "Wychodzący")</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditTransfer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+            @if (Model.TransferOut)
+            {
+                <div class="form-group">
+                    <label asp-for="Recipient" class="control-label"></label>
+                    <input asp-for="Recipient" class="form-control" required />
+                    <span asp-validation-for="Recipient" class="text-danger"></span>
+                </div>
+            }
+            @if (Model.TransferIn)
+            {
+                <div class="form-group">
+                    <label asp-for="Sender" class="control-label"></label>
+                    <input asp-for="Sender" class="form-control" required />
+                    <span asp-validation-for="Sender" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="TransferIn" />
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-dark"
+       asp-action="Index">Anuluj</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -28,5 +28,7 @@ namespace AgricultureManagementSystem.Data
         public DbSet<Activity> Activity { get; set; }
 
         public DbSet<Note> Notes { get; set; }
+
+        public DbSet<Transfer> Transfers { get; set; }
     }
 }

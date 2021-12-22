@@ -1,0 +1,60 @@
+﻿@model AgricultureManagementSystem.Models.Transfer
+
+@{
+    ViewData["Title"] = "Usuń przelew";
+}
+
+<h1>Usuń przelew</h1>
+
+<h3>
+    Jesteś pewien że chcesz usunąć poniższy element?<br />
+    Podanej czynności nie można cofnąć
+</h3>
+<div>
+    <h4>@(Model.TransferIn ? "Przychodzący" : "Wychodzący")</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+        @if (Model.TransferOut)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Recipient)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Recipient)
+            </dd>
+        }
+        @if (Model.TransferIn)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Sender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Sender)
+            </dd>
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteTransferPost">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-outline-danger" />
+        <a class="btn btn-dark" asp-action="Index">Anuluj</a>
+    </form>
+</div>
