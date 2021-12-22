@@ -1,22 +1,22 @@
-﻿using AgricultureManagementSystem.Models;
+﻿using AgricultureManagementSystem.Data;
+using AgricultureManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace AgricultureManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ApplicationDbContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            this.db = db;
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
+            => View(db.Notes.Where(n => n.Index == 0).FirstOrDefault());
 
         public IActionResult Privacy()
         {

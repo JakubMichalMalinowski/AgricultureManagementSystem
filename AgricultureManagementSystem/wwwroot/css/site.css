@@ -95,6 +95,18 @@ body {
     height: calc(100vh - 320px);
 }
 
+.equipmentCardColor {
+    background-color: lightgreen;
+}
+
+.fieldCardColor {
+    background-color: lightsalmon;
+}
+
+.noteFinanceCardColor {
+    background-color: lightgoldenrodyellow;
+}
+
 @keyframes fadeOut {
     0% { background-color: yellow; }
     100% { background-color: none; }

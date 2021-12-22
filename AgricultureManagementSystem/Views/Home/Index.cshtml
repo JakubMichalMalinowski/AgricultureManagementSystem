@@ -1,8 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model AgricultureManagementSystem.Models.Note
+@{
+    ViewData["Title"] = "AMS";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>aa <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1 class="mb-5">Dzień dobry</h1>
+<div class="row d-flex flex-wrap">
+    <div class="d-flex flex-wrap col-lg-4 justify-content-center">
+        <div class="card zoomHover p-2 m-3 equipmentCardColor">
+            <div class="card-body">
+                <h5 class="card-title text-center">Traktory</h5>
+                <a class="stretched-link" asp-controller="Tractor"></a>
+            </div>
+        </div>
+        <div class="card zoomHover p-2 m-3 equipmentCardColor">
+            <div class="card-body">
+                <h5 class="card-title text-center">Kombajny</h5>
+                <a class="stretched-link" asp-controller="Combine"></a>
+            </div>
+        </div>
+        <div class="card zoomHover p-2 m-3 equipmentCardColor">
+            <div class="card-body">
+                <h5 class="card-title text-center">Maszyny</h5>
+                <a class="stretched-link" asp-controller="Machine"></a>
+            </div>
+        </div>
+        <div class="card zoomHover p-2 m-3 equipmentCardColor">
+            <div class="card-body">
+                <h5 class="card-title text-center">Przyczepy</h5>
+                <a class="stretched-link" asp-controller="Trailer"></a>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-wrap col-lg-4 justify-content-center">
+        <div class="d-flex">
+            <div class="card zoomHover py-3 px-5 m-3 fieldCardColor">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Pola uprawne</h5>
+                    <a class="stretched-link" asp-controller="Field"></a>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="card zoomHover p-2 m-3 noteFinanceCardColor">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Notatki</h5>
+                    <a class="stretched-link" asp-controller="Note"></a>
+                </div>
+            </div>
+            <div class="card zoomHover p-2 m-3 noteFinanceCardColor">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Finanse</h5>
+                    <a class="stretched-link" asp-controller="Finance"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <p>Pierwsza notatka:</p>
+        <div class="card bg-light">
+            <div class="card-body pre-scrollable" style="height: 300px">
+                <h5 class="card-title">@(Model?.Title ?? "Brak notatek")</h5>
+                <p class="card-text multiline-text">@Model?.Content</p>
+            </div>
+        </div>
+    </div>
 </div>
