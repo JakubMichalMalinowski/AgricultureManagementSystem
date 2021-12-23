@@ -58,9 +58,7 @@ namespace AgricultureManagementSystem.Controllers
             {
                 var item = db.Combines.Find(id);
                 if (item != null)
-                {
                     return View(item);
-                }
             }
 
             return NotFound();
@@ -190,12 +188,16 @@ namespace AgricultureManagementSystem.Controllers
                         int headerListIndex = combine.Headers.ToList()
                             .FindIndex(h => h.Id == header.Id);
 
-                        combine.Headers[headerListIndex].Update(header);
+                        try
+                        {
+                            combine.Headers[headerListIndex].Update(header);
 
-                        db.SaveChanges();
+                            db.SaveChanges();
 
-                        return RedirectToAction(nameof(Details),
-                            new { id = combineId });
+                            return RedirectToAction(nameof(Details),
+                                new { id = combineId });
+                        }
+                        catch { }
                     }
                 }
 

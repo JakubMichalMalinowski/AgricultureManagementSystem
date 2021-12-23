@@ -82,14 +82,17 @@ namespace AgricultureManagementSystem.Controllers
                     int serviceListIndex = equipment.Services.ToList()
                         .FindIndex(s => s.Id == service.Id);
 
-                    equipment.Services[serviceListIndex].Update(service);
+                    try
+                    {
+                        equipment.Services[serviceListIndex].Update(service);
+                        db.SaveChanges();
 
-                    db.SaveChanges();
-
-                    return RedirectToAction("Details",
-                        equipmentType.ToString(),
-                        new { id = equipmentId },
-                        "service-partial-" + service.Id);
+                        return RedirectToAction("Details",
+                            equipmentType.ToString(),
+                            new { id = equipmentId },
+                            "service-partial-" + service.Id);
+                    }
+                    catch { }
                 }
 
                 return NotFound();

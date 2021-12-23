@@ -10,7 +10,7 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class FinanceController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
 
         public FinanceController(ApplicationDbContext db)
         {
@@ -67,6 +67,7 @@ namespace AgricultureManagementSystem.Controllers
                     _ => false
                 }
             };
+
             return View("TransferForm", transfer);
         }
 
@@ -87,7 +88,16 @@ namespace AgricultureManagementSystem.Controllers
         }
 
         public IActionResult EditTransfer(int id)
-            => View(db.Transfers.Find(id));
+        {
+            if (id != 0)
+            {
+                Transfer transfer = db.Transfers.Find(id);
+                if (transfer != null)
+                    return View(transfer);
+            }
+
+            return NotFound();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -110,9 +120,7 @@ namespace AgricultureManagementSystem.Controllers
             {
                 Transfer transfer = db.Transfers.Find(id);
                 if (transfer != null)
-                {
                     return View(transfer);
-                }
             }
 
             return NotFound();

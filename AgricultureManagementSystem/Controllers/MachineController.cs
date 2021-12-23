@@ -57,9 +57,7 @@ namespace AgricultureManagementSystem.Controllers
             {
                 var item = db.Machines.Find(id);
                 if (item != null)
-                {
                     return View(item);
-                }
             }
 
             return NotFound();

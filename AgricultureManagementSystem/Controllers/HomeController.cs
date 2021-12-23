@@ -8,7 +8,7 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
 
         public HomeController(ApplicationDbContext db)
         {

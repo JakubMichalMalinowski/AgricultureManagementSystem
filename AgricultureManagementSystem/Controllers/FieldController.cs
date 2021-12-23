@@ -8,7 +8,7 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class FieldController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
 
         public FieldController(ApplicationDbContext db)
         {
@@ -59,9 +59,7 @@ namespace AgricultureManagementSystem.Controllers
             {
                 var item = db.Fields.Find(id);
                 if (item != null)
-                {
                     return View(item);
-                }
             }    
 
             return NotFound();

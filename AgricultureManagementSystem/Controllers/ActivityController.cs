@@ -11,7 +11,7 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class ActivityController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
 
         public ActivityController(ApplicationDbContext db)
         {
@@ -83,14 +83,18 @@ namespace AgricultureManagementSystem.Controllers
                     int activityListIndex = field.Activities.ToList()
                         .FindIndex(a => a.Id == activity.Id);
 
-                    field.Activities[activityListIndex].Update(activity);
+                    try
+                    {
+                        field.Activities[activityListIndex].Update(activity);
 
-                    db.SaveChanges();
+                        db.SaveChanges();
 
-                    return RedirectToAction("Details",
-                        "Field",
-                        new { id = fieldId },
-                        "activity-partial-" + activity.Id);
+                        return RedirectToAction("Details",
+                            "Field",
+                            new { id = fieldId },
+                            "activity-partial-" + activity.Id);
+                    }
+                    catch { }
                 }
 
                 return NotFound();

@@ -11,7 +11,7 @@ namespace AgricultureManagementSystem.Controllers
 {
     public class NoteController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
 
         public NoteController(ApplicationDbContext db)
         {
@@ -43,7 +43,16 @@ namespace AgricultureManagementSystem.Controllers
         }
 
         public IActionResult Edit(int id)
-            => View(db.Notes.Find(id));
+        {
+            if (id != 0)
+            {
+                var note = db.Notes.Find(id);
+                if (note != null)
+                    return View(note);
+            }
+
+            return NotFound();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -69,9 +78,7 @@ namespace AgricultureManagementSystem.Controllers
                 Note note = db.Notes.Find(id);
 
                 if (note != null)
-                {
                     return View(note);
-                }
             }
 
             return NotFound();
@@ -106,33 +113,36 @@ namespace AgricultureManagementSystem.Controllers
                 DbSet<Note> notes = db.Notes;
                 Note currentNote = notes.Find(noteId);
 
-                Note changingNote = direction switch
+                if (currentNote != null)
                 {
-                    "up" => notes.Where(n => n.Index == currentNote.Index - 1)
-                    .FirstOrDefault(),
+                    Note changingNote = direction switch
+                    {
+                        "up" => notes.Where(n => n.Index == currentNote.Index - 1)
+                        .FirstOrDefault(),
 
-                    "down" => notes.Where(n => n.Index == currentNote.Index + 1)
-                    .FirstOrDefault(),
+                        "down" => notes.Where(n => n.Index == currentNote.Index + 1)
+                        .FirstOrDefault(),
 
-                    _ => null
-                };
+                        _ => null
+                    };
 
-                int changingIndex = changingNote?.Index ?? -1;
+                    int changingIndex = changingNote?.Index ?? -1;
 
-                if (changingIndex >= 0)
-                {
-                    changingNote.Index = currentNote.Index;
-                    currentNote.Index = changingIndex;
+                    if (changingIndex >= 0)
+                    {
+                        changingNote.Index = currentNote.Index;
+                        currentNote.Index = changingIndex;
 
-                    db.Notes.Update(currentNote);
-                    db.Notes.Update(changingNote);
+                        db.Notes.Update(currentNote);
+                        db.Notes.Update(changingNote);
 
-                    db.SaveChanges();
+                        db.SaveChanges();
+                    }
+
+                    return RedirectToAction(nameof(Index),
+                        "Note",
+                        "note-" + noteId);
                 }
-
-                return RedirectToAction(nameof(Index),
-                    "Note",
-                    "note-" + noteId);
             }
 
             return RedirectToAction(nameof(Index));
