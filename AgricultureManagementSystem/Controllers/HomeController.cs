@@ -17,5 +17,8 @@ namespace AgricultureManagementSystem.Controllers
 
         public IActionResult Index()
             => View(db.Notes.Where(n => n.Index == 0).FirstOrDefault());
+
+        public IActionResult Error()
+            => View();
     }
 }
