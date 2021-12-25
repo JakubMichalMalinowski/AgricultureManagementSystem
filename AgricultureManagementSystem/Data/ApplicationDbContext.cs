@@ -1,5 +1,4 @@
 ﻿using AgricultureManagementSystem.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgricultureManagementSystem.Data

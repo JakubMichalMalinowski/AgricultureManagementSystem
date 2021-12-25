@@ -60,7 +60,7 @@ namespace AgricultureManagementSystem.Controllers
                 var item = db.Fields.Find(id);
                 if (item != null)
                     return View(item);
-            }    
+            }
 
             return NotFound();
         }

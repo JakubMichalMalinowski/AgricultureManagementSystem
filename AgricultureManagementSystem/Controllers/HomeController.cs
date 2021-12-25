@@ -1,7 +1,5 @@
 ﻿using AgricultureManagementSystem.Data;
-using AgricultureManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace AgricultureManagementSystem.Controllers
