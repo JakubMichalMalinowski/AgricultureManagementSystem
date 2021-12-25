@@ -1,5 +1,6 @@
 ﻿using AgricultureManagementSystem.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System.Linq;
 
 namespace AgricultureManagementSystem.Controllers
@@ -7,10 +8,12 @@ namespace AgricultureManagementSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext db;
+        private readonly IHostApplicationLifetime lifetime;
 
-        public HomeController(ApplicationDbContext db)
+        public HomeController(ApplicationDbContext db, IHostApplicationLifetime lifetime)
         {
             this.db = db;
+            this.lifetime = lifetime;
         }
 
         public IActionResult Index()
@@ -18,5 +21,11 @@ namespace AgricultureManagementSystem.Controllers
 
         public IActionResult Error()
             => View();
+
+        public IActionResult Shutdown()
+        {
+            lifetime.StopApplication();
+            return View();
+        }
     }
 }

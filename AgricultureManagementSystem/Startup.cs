@@ -33,7 +33,6 @@ namespace AgricultureManagementSystem
                 options.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((a, b) => $"Wartoœæ {a} jest niepoprawna dla pola {b}");
                 options.ModelBindingMessageProvider.SetValueMustBeANumberAccessor((a) => $"Pole {a} musi byæ wype³nione liczb¹");
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
