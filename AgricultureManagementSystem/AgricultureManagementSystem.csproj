@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-AgricultureManagementSystem-DDFB4494-3B47-4D36-BFAC-3848452559D5</UserSecretsId>
-    <ApplicationIcon />
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <StartupObject />
   </PropertyGroup>
