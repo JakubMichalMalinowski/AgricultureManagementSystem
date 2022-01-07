@@ -38,6 +38,10 @@ namespace AgricultureManagementSystem
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            (app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+                .ServiceProvider.GetRequiredService<ApplicationDbContext>()
+                .Database.Migrate();
+
             var cultureInfo = new CultureInfo("pl-PL");
             cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
